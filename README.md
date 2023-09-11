@@ -28,18 +28,26 @@ Before you begin, ensure you have met the following requirements:
 
 2. Create and activate a virtual environment:
 
-   ```python -m venv venv```
+   ```
+   python -m venv venv
+   ```
 
    For macOS / Linux:
-   ```source venv/bin/activate```
+   ```
+   source venv/bin/activate
+   ```
    For Windows:
-   ```venv\Scripts\activate```
+   ```
+   venv\Scripts\activate
+   ```
 
-3. Install project dependencies:
+4. Install project dependencies:
 
-    ```pip install -r requirements.txt```
+    ```
+   pip install -r requirements.txt
+    ```
 
-4. Create a `.flaskenv` file in the root directory for basic environmental variables:
+6. Create a `.flaskenv` file in the root directory for basic environmental variables:
     ```
     DATABASE_URL=sqlite:///data.db  # Use your database URL (e.g., PostgreSQL or MySQL)
     FLASK_ENV=development

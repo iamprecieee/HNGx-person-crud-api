@@ -2,8 +2,7 @@
 
 This documentation provides details on how to use the Person CRUD REST API. The API allows you to manage person records with basic CRUD (Create, Read, Update, Delete) operations.
 
-For instructions for setting up and deploying the API locally, please refer to the README.md file.
-
+For instructions for setting up and deploying the API locally, please refer to the [README.md](https://github.com/iamprecieee/person-crud-api/blob/main/README.md) file.
 
 ## Standard Formats for Requests and Responses
 
@@ -19,7 +18,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 - **Method**: `GET`
 - **Request**:
 
-    ```curl -X GET http://localhost:5000/api```
+    ```
+  curl -X GET http://localhost:5000/api
+    ```
 
 - **Response (200 OK)**:
 
@@ -42,13 +43,13 @@ For instructions for setting up and deploying the API locally, please refer to t
 - **Method**: `POST`
 - **Request**:
 
-```curl -X POST -H "Content-Type: application/json" -d '{"name": "New Person"}' http://localhost:5000/api```
+```
+curl -X POST -H "Content-Type: application/json" -d '{"name": "New Person"}' http://localhost:5000/api```
 
 ```
-{
-  "name": "New Person"
-}
-```
+    {
+      "name": "New Person"
+    }
 
 - **Response (200 OK)**:
 
@@ -66,7 +67,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 - **Method**: `GET`
 - **Request**:
 
-```curl -X GET http://localhost:5000/api/1```
+```
+curl -X GET http://localhost:5000/api/1
+```
 
 - **Response (200 OK)**:
 
@@ -83,7 +86,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 - **Method**: `PUT`
 - **Request**:
 
-```curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name"}' http://localhost:5000/api/1```
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name"}' http://localhost:5000/api/1
+```
 
 - **Response (200 OK)**:
 
@@ -100,7 +105,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 - **Method**: `DELETE`
 - **Request**:
 
-```curl -X DELETE http://localhost:5000/api/1```
+```
+curl -X DELETE http://localhost:5000/api/1
+```
 
 - **Response (200 OK)**:
   

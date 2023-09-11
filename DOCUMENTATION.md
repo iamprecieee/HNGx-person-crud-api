@@ -47,7 +47,7 @@ For instructions for setting up and deploying the API locally, please refer to t
 ```
 {
   "name": "New Person"
-    }
+}
 ```
 
 - **Response (200 OK)**:

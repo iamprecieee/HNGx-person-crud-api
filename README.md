@@ -67,7 +67,8 @@ Create the initial database tables:
 ## Running The Application
 
 Start the development server using the command:
-    ```flask run
+    ```
+    flask run
     ```
     
 The API will be running locally at `http://localhost:5000`.

@@ -45,7 +45,7 @@ Before you begin, ensure you have met the following requirements:
     FLASK_ENV=development
     FLASK_APP=app.py
     ```
-   P.S.: Not recommended for production.
+P.S.: Not recommended for production.
 
 ## Database Setup
 
@@ -59,5 +59,7 @@ Create the initial database tables:
 ## Running The Application
 
 Start the development server using the command:
-    ```flask run```
-    The API will be running locally at `http://localhost:5000`.
+    ```flask run
+    ```
+    
+The API will be running locally at `http://localhost:5000`.

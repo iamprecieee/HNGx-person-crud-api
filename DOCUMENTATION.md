@@ -32,7 +32,7 @@ For instructions for setting up and deploying the API locally, please refer to t
       "id": 2,
       "name": "Jane Smith"
     }
-  ]
+  ]```
 
 
 ### Endpoint: Create a Person
@@ -43,9 +43,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 ```curl -X POST -H "Content-Type: application/json" -d '{"name": "New Person"}' http://localhost:5000/api```
 
-```{
+{
   "name": "New Person"
-}
+    }
 
 - **Response (200 OK)**:
 

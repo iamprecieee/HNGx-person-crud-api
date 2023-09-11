@@ -32,7 +32,7 @@ For instructions for setting up and deploying the API locally, please refer to t
       "id": 2,
       "name": "Jane Smith"
     }
-  ]```
+  ]
 
 
 ### Endpoint: Create a Person
@@ -45,7 +45,7 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 ```{
   "name": "New Person"
-}```
+}
 
 - **Response (200 OK)**:
 

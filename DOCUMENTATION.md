@@ -57,8 +57,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"name": "New Person"}' htt
   {
     "name": "John Doe"
   }
+  ```
 
- ```"Person created successfully."```
+```"Person created successfully."```
 
 
 ### Endpoint: Retrieve a Person by ID

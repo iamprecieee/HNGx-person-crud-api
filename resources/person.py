@@ -25,6 +25,12 @@ class PersonDetails(MethodView):
         """
         Creates a new Person instance
         """
+        name = person_data.get("name", "").strip()
+        if not name:
+            abort(422, description="Name must be a valid string!")
+        for key, value in person_data.items():
+            if isinstance(value, str):
+                person_data[key] = value.title().strip()
         person = PersonModel(**person_data)
         try:
             db.session.add(person)
@@ -42,6 +48,9 @@ class Person(MethodView):
         Returns a specific Person instance by id
         """
         person = PersonModel.query.get(user_id)
+        if not user_id.isdigit():
+            user_id = user_id.title()
+            person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
             abort(404, description="Person with this id could not be located.")
         return person
@@ -53,6 +62,9 @@ class Person(MethodView):
         Updates record of a Person instance by id
         """
         person = PersonModel.query.get(user_id)
+        if not user_id.isdigit():
+            user_id = user_id.title()
+            person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
             abort(404, description="Person with this id could not be located.")
         person.name = person_data["name"]
@@ -69,6 +81,9 @@ class Person(MethodView):
         Deletes record of a Person instance by id
         """
         person = PersonModel.query.get(user_id)
+        if not user_id.isdigit():
+            user_id = user_id.title()
+            person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
             abort(404, description="Person with this id could not be located.")
         try:

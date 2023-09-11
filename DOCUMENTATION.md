@@ -23,7 +23,8 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 - **Response (200 OK)**:
 
-  ```[
+  ```
+  [
     {
       "id": 1,
       "name": "John Doe"
@@ -32,7 +33,7 @@ For instructions for setting up and deploying the API locally, please refer to t
       "id": 2,
       "name": "Jane Smith"
     }
-  ]```
+  ]
 
 
 ### Endpoint: Create a Person
@@ -43,15 +44,18 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 ```curl -X POST -H "Content-Type: application/json" -d '{"name": "New Person"}' http://localhost:5000/api```
 
+```
 {
   "name": "New Person"
     }
+```
 
 - **Response (200 OK)**:
 
-  ```{
+  ```
+  {
     "name": "John Doe"
-  }```
+  }
 
  "Person created successfully."
 
@@ -66,10 +70,11 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 - **Response (200 OK)**:
 
-  ```{
+  ```
+  {
       "id": 1,
       "name": "John Doe"
-    }```
+  }
 
 
 ### Endpoint: Update a Person by ID
@@ -82,10 +87,11 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 - **Response (200 OK)**:
 
-  ```{
-  "id": 1,
-  "name": "Updated Name"
-}```
+  ```
+  {
+      "id": 1,
+      "name": "Updated Name"
+  }
 
 
 ### Endpoint: Delete a Person by ID
@@ -96,7 +102,9 @@ For instructions for setting up and deploying the API locally, please refer to t
 
 ```curl -X DELETE http://localhost:5000/api/1```
 
-- **Response (200 OK)**: "Person deleted successfully."
+- **Response (200 OK)**:
+  
+  ```"Person deleted successfully."```
 
 
 

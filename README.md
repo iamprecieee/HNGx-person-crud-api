@@ -90,6 +90,3 @@ You can run the tests for this project using the following command:
 pytest
 ```
 
-## UML Diagram
-
-![UML Image](person_crud_api.png)

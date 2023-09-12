@@ -4,6 +4,11 @@ This documentation provides details on how to use the Person CRUD REST API. The 
 
 For instructions for setting up and deploying the API locally, please refer to the [README.md](https://github.com/iamprecieee/person-crud-api/blob/main/README.md) file.
 
+## Swagger Documentation
+
+[Swagger UI](https://person-crud-izmp.onrender.com/swagger-ui)
+
+
 ## Standard Formats for Requests and Responses
 
 ### Person Model

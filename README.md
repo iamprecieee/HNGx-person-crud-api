@@ -8,6 +8,7 @@ A simple REST API for performing CRUD operations on person records using Flask-s
 - [Installation](#installation-and-configuration)
 - [Database Setup](#database-setup)
 - [Running the Application](#running-the-application)
+- [Testing](#testing)
 
 ## Prerequisites
 
@@ -72,3 +73,19 @@ Start the development server using the command:
     ```
     
 The API will be running locally at `http://localhost:5000`.
+
+## Testing
+
+### Testing Prerequisites
+
+Before running the tests, ensure you have the following dependencies installed:
+
+- pytest (You can install this using `pip install pytest`)
+
+### Running Tests
+
+You can run the tests for this project using the following command:
+
+```
+pytest
+```

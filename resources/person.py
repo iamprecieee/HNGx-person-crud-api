@@ -1,4 +1,4 @@
-from flask import abort
+from flask import abort, jsonify, make_response
 from flask_smorest import Blueprint
 from flask.views import MethodView
 from sqlalchemy.exc import IntegrityError
@@ -9,6 +9,16 @@ from schema import PersonSchema, PersonUpdateSchema
 
 
 blp = Blueprint("Persons", "persons", description="Operations on persons.")
+
+@blp.errorhandler(400)
+def bad_request(error):
+    response = jsonify({"code": 400, "status": "Bad Request", "description": "A person with that name already exists!"})
+    return make_response(response, 400)
+
+@blp.errorhandler(404)
+def not_found(error):
+    response = jsonify({"code": 404, "status": "Not Found", "description": "Person with this id/name could not be located."})
+    return make_response(response, 404)
 
 @blp.route("/api")
 class PersonDetails(MethodView):
@@ -36,7 +46,7 @@ class PersonDetails(MethodView):
             db.session.add(person)
             db.session.commit()
         except IntegrityError:
-            abort(400, description="A person with that name already exists!")
+            abort(400)
         return "Person created successfully."
     
     
@@ -47,12 +57,13 @@ class Person(MethodView):
         """
         Returns a specific Person instance by id
         """
-        person = PersonModel.query.get(user_id)
-        if not user_id.isdigit():
+        if user_id.isdigit():
+            person = PersonModel.query.get(user_id)
+        else:
             user_id = user_id.title()
             person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
-            abort(404, description="Person with this id could not be located.")
+            abort(404)
         return person
     
     @blp.arguments(PersonUpdateSchema)
@@ -66,13 +77,13 @@ class Person(MethodView):
             user_id = user_id.title()
             person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
-            abort(404, description="Person with this id could not be located.")
-        person.name = person_data["name"]
+            abort(404)
+        person.name = person_data["name"].title()
         try:
             db.session.add(person)
             db.session.commit()
         except IntegrityError:
-            abort(400, description="A person with that name already exists!")
+            abort(400)
         return person
     
     @blp.response(200)
@@ -85,10 +96,10 @@ class Person(MethodView):
             user_id = user_id.title()
             person =PersonModel.query.filter_by(name=user_id).first()
         if not person:
-            abort(404, description="Person with this id could not be located.")
+            abort(404)
         try:
             db.session.delete(person)
             db.session.commit()
         except IntegrityError:
-            abort(400, description="A person with that name already exists!")
+            abort(400)
         return "Person deleted successfully."

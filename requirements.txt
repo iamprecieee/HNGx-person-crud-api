@@ -12,7 +12,7 @@ itsdangerous
 jsonschema
 marshmallow
 marshmallow-sqlalchemy
-psycopg2
+psycopg2-binary
 python-dotenv
 requests
 shortuuid

@@ -89,3 +89,7 @@ You can run the tests for this project using the following command:
 ```
 pytest
 ```
+
+## UML Diagram
+
+![UML Image](https://drive.google.com/file/d/1pN7Jj5-beXJ-i9sEXxPjYugyalZgrvDv/view?usp=drive_link)

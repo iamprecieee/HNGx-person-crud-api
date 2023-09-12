@@ -92,4 +92,4 @@ pytest
 
 ## UML Diagram
 
-![UML Image](https://drive.google.com/file/d/1pN7Jj5-beXJ-i9sEXxPjYugyalZgrvDv/view?usp=drive_link)
+![UML Image](person_crud_api.png)

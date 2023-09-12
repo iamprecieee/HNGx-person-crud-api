@@ -119,3 +119,11 @@ curl -X DELETE http://localhost:5000/api/1
 ## Limitations
 
 Error responses include standard HTTP status codes and descriptive error messages for common scenarios, but more detailed error handling can be added as needed.
+
+
+## UML Diagram
+
+![UML Image](https://github.com/iamprecieee/person-crud-api/blob/main/person_crud_UML.png)
+
+The UML image can also be found here:
+[UML](http://scssr.tech/uml)

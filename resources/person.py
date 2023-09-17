@@ -106,5 +106,4 @@ class Person(MethodView):
             db.session.delete(person)
             db.session.commit()
         except IntegrityError:
-            abort(400)
-        return "Person deleted successfully."
+            db.session.rollback()

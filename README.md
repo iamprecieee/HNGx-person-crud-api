@@ -81,6 +81,8 @@ The API will be running locally at `http://localhost:5000`.
 Before running the tests, ensure you have the following dependencies installed:
 
 - pytest (You can install this using `pip install pytest`)
+or
+- unittest (You can install this using `pip install unittest`)
 
 ### Running Tests
 
@@ -88,4 +90,9 @@ You can run the tests for this project using the following command:
 
 ```
 pytest
+```
+or
+
+```
+python3 -m unittest -v
 ```

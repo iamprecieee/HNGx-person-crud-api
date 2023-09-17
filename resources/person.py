@@ -4,7 +4,7 @@ from flask.views import MethodView
 from sqlalchemy.exc import IntegrityError
 
 from resources.db import db
-from models import PersonModel
+from models.model import PersonModel
 from schema import PersonSchema, PersonUpdateSchema
 
 
@@ -19,6 +19,11 @@ def bad_request(error):
 def not_found(error):
     response = jsonify({"code": 404, "status": "Not Found", "description": "Person with this id/name could not be located."})
     return make_response(response, 404)
+
+@blp.errorhandler(422)
+def unprocessable_entity(error):
+    response = jsonify({"code": 422, "status": "Unprocessable Entity", "description": "Name must be a valid string!"})
+    return make_response(response, 422)
 
 @blp.route("/api")
 class PersonDetails(MethodView):
@@ -37,7 +42,7 @@ class PersonDetails(MethodView):
         """
         name = person_data.get("name", "").strip()
         if not name:
-            abort(422, description="Name must be a valid string!")
+            abort(422)
         for key, value in person_data.items():
             if isinstance(value, str):
                 person_data[key] = value.title().strip()
@@ -86,7 +91,7 @@ class Person(MethodView):
             abort(400)
         return person
     
-    @blp.response(200)
+    @blp.response(204)
     def delete(self, user_id):
         """
         Deletes record of a Person instance by id
@@ -100,6 +105,5 @@ class Person(MethodView):
         try:
             db.session.delete(person)
             db.session.commit()
-        except IntegrityError:
-            abort(400)
-        return "Person deleted successfully."
+        except:
+            db.session.rollback()

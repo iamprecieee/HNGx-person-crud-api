@@ -110,9 +110,9 @@ curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name"}' ht
 curl -X DELETE http://localhost:5000/api/1
 ```
 
-- **Response (200 OK)**:
+- **Response (204 NO CONTENT)**:
   
-  ```"Person deleted successfully."```
+  ```""```
 
 
 

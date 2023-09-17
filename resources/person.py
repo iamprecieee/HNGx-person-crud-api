@@ -52,7 +52,7 @@ class PersonDetails(MethodView):
             db.session.commit()
         except IntegrityError:
             abort(400)
-        return "Person created successfully."
+        return person
     
     
 @blp.route("/api/<user_id>")
@@ -105,5 +105,6 @@ class Person(MethodView):
         try:
             db.session.delete(person)
             db.session.commit()
-        except:
-            db.session.rollback()
+        except IntegrityError:
+            abort(400)
+        return "Person deleted successfully."

@@ -42,7 +42,7 @@ def test_get_person(client):
         "/api",
         json={"name": "Jane Smith"}
     )
-    response_get = client.get(f"/api/1")
+    response_get = client.get("/api/1")
     assert response_get.status_code == 200
     assert json.loads(response_get.data.decode("utf-8"))["name"] == "Jane Smith"
 
@@ -68,10 +68,7 @@ def test_update_person(client):
         "/api",
         json={"name": "Jane Smith"}
     )
-    response_update = client.put(
-        f"/api/1",
-        json={"name": "Jane Doe"}
-    )
+    response_update = client.put("/api/1", json={"name": "Jane Doe"})
     assert response_update.status_code == 200
     assert json.loads(response_update.data.decode("utf-8"))["name"] == "Jane Doe"
     
@@ -81,10 +78,7 @@ def test_update_person_by_name(client):
         "/api",
         json={"name": "Jane Smith"}
     )
-    response_update = client.put(
-        f"/api/Jane%20Smith",
-        json={"name": "Jane Doe"}
-    )  # Name with space
+    response_update = client.put("/api/Jane%20Smith", json={"name": "Jane Doe"})
     assert response_update.status_code == 200
     assert json.loads(response_update.data.decode("utf-8"))["name"] == "Jane Doe"
 
@@ -94,7 +88,7 @@ def test_delete_person(client):
         "/api",
         json={"name": "John Doe"}
     )
-    response_delete = client.delete(f"/api/1")
+    response_delete = client.delete("/api/1")
     assert response_delete.status_code == 204
     assert not response_delete.data
     
